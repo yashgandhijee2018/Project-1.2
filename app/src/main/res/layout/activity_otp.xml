@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F0F2"
+    tools:context=".Activity.OTP">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="30dp"
+        android:background="@drawable/qr_inv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2" />
+
+        <TextView
+            android:id="@+id/VerifCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Verification Code"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/numberlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4">
+
+        <EditText
+            android:id="@+id/etone"
+            android:layout_width="50sp"
+            android:layout_height="80sp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/roundrect2"
+            android:backgroundTint="@android:color/white"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="number"
+            android:maxLength="1"
+            android:nextFocusRight="@+id/et_two"
+            android:paddingStart="20sp"
+            android:paddingEnd="10sp"
+            android:textSize="26sp">
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/ettwo"
+            android:layout_width="50sp"
+            android:layout_height="80sp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/roundrect2"
+            android:backgroundTint="@android:color/white"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingStart="17sp"
+            android:paddingEnd="10sp"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/etthree"
+            android:layout_width="50sp"
+            android:layout_height="80sp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/roundrect2"
+            android:backgroundTint="@android:color/white"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingStart="17sp"
+            android:paddingEnd="10sp"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/etfour"
+            android:layout_width="50sp"
+            android:layout_height="80sp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/roundrect2"
+            android:backgroundTint="@android:color/white"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingStart="17sp"
+            android:paddingEnd="10sp"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/etfive"
+            android:layout_width="50sp"
+            android:layout_height="80sp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/roundrect2"
+            android:backgroundTint="@android:color/white"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingStart="17sp"
+            android:paddingEnd="10sp"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/etsix"
+            android:layout_width="50sp"
+            android:layout_height="80sp"
+            android:background="@drawable/roundrect2"
+            android:backgroundTint="@android:color/white"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingStart="17sp"
+            android:paddingEnd="10sp"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/resendcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Resend Code"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberlayout"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/qr"
+        android:padding="20sp"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="Next"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>
