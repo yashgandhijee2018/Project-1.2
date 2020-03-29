@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F3F3F3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        app:cardCornerRadius="50dp">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cardsbg">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilephoto"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="40dp"
+                android:src="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/topic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="Basketball"
+                android:textColor="#C3C3C3"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/user_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="45dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="jain_preyesh"
+                android:textColor="#FFF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="75dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="1 hour ago"
+                android:textColor="#C3C3C3"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/downarrow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="340dp"
+                android:layout_marginTop="65dp"
+                app:srcCompat="@drawable/downarrow" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="125dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Anyone up for the basketball game? I will be at the complex around 5pm. Acknowledge if you are coming."
+                android:textColor="#C3C3C3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/nmessages"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="240dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="center"
+                android:text="32"
+                android:textColor="#C3C3C3"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/messages"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="260dp"
+                android:layout_marginTop="240dp"
+                android:layout_marginBottom="20dp"
+                app:srcCompat="@drawable/messages3" />
+
+            <TextView
+                android:id="@+id/nhearts"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="305dp"
+                android:layout_marginTop="240dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="40"
+                android:textColor="#C3C3C3"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/heart"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="335dp"
+                android:layout_marginTop="240dp"
+                android:layout_marginBottom="20dp"
+                app:srcCompat="@drawable/heart" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

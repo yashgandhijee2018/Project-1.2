@@ -53,15 +53,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:text="Done"
+        android:backgroundTint="@color/colorPrimary"
+        android:onClick="done"
         android:padding="10dp"
+        android:text="Done"
+        android:textColor="@android:color/white"
+        app:cornerRadius="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/grp_nm"
-        app:cornerRadius="20sp"
-        android:backgroundTint="@color/colorPrimary"
-        android:textColor="@android:color/white"
         app:layout_constraintVertical_bias="0.9" />
 
     <com.google.android.material.button.MaterialButton

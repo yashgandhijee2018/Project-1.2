@@ -43,4 +43,8 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
+
+    <style name="Style_Drawer_Items">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
 </resources>

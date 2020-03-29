@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(int,ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         }
         signup_btn.setOnClickListener(){
-            val int=Intent(this, SignUp::class.java)
+            val int=Intent(this, Info::class.java)
             startActivity(int,ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         }
     }

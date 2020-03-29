@@ -9,7 +9,9 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" android:maxSdkVersion="22" />
+    <uses-permission
+        android:name="android.permission.USE_CREDENTIALS"
+        android:maxSdkVersion="22" />
 
     <application
         android:allowBackup="true"
@@ -19,9 +21,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="LockedOrientationActivity">
-        <activity android:name=".Activity.CreateCommunityActivity"
+        <activity android:name=".Activity.HomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Login"/>
+            android:theme="@style/Login"></activity>
+        <activity
+            android:name=".Activity.CreateCommunityActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Login" />
         <activity
             android:name=".Activity.PhoneNumberActivity"
             android:screenOrientation="portrait"
@@ -41,8 +47,7 @@
         <activity
             android:name=".Activity.SignUp"
             android:screenOrientation="portrait"
-            android:theme="@style/SignUp"/>
-<!--            android:windowSoftInputMode="adjustResize" -->
+            android:theme="@style/SignUp" /> <!-- android:windowSoftInputMode="adjustResize" -->
         <activity
             android:name=".Activity.AddPfP"
             android:screenOrientation="portrait"
@@ -50,8 +55,7 @@
         <activity
             android:name=".Activity.SignIn"
             android:screenOrientation="portrait"
-            android:theme="@style/Login"/>
-<!--            android:windowSoftInputMode="adjustResize"-->
+            android:theme="@style/Login" /> <!-- android:windowSoftInputMode="adjustResize" -->
         <activity
             android:name=".Activity.Info"
             android:screenOrientation="portrait"
