@@ -60,7 +60,6 @@ public class HomeActivity extends AppCompatActivity {
         //Recycler View Code
         homeList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         homeList.add(new Home("Basketball", "bond_007","15 min ago",
