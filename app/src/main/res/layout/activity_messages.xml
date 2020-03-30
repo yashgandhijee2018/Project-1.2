@@ -7,88 +7,90 @@
     android:orientation="vertical"
     tools:context=".Activity.MessagesActivity">
 
-    <ScrollView
+    <RelativeLayout
+        android:id="@+id/relLayoutMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:isScrollContainer="true"
+        android:layout_height="150dp"
+        android:background="@drawable/qr_inv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/messagesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="75dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="Messages"
+            android:textColor="#000000"
+            android:textSize="34sp" />
+
+        <ImageView
+            android:id="@+id/myProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/myprofile" />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="126dp"
+            app:srcCompat="@drawable/search" />
+
+        <ImageView
+            android:id="@+id/explore"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="84dp"
+            app:srcCompat="@drawable/explore2" />
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="42dp"
+            android:onClick="home"
+            app:srcCompat="@drawable/home2" />
+
+        <ImageView
+            android:id="@+id/notification"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="2dp"
+            app:srcCompat="@drawable/notification" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadeScrollbars="true"
+        android:isScrollContainer="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relLayoutMain">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:fadeScrollbars="true"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
 
-
-            <RelativeLayout
-                android:id="@+id/relLayoutMain"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/qr_inv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/messagesTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginTop="75dp"
-                    android:fontFamily="@font/montserrat_semi_bold"
-                    android:text="Messages"
-                    android:textColor="#000000"
-                    android:textSize="34sp" />
-
-                <ImageView
-                    android:id="@+id/myProfile"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/myprofile" />
-
-                <ImageView
-                    android:id="@+id/search"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginEnd="126dp"
-                    app:srcCompat="@drawable/search" />
-
-                <ImageView
-                    android:id="@+id/explore"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginEnd="84dp"
-                    app:srcCompat="@drawable/explore2" />
-
-                <ImageView
-                    android:id="@+id/home"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginEnd="42dp"
-                    android:onClick="home"
-                    app:srcCompat="@drawable/home2" />
-
-                <ImageView
-                    android:id="@+id/notification"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginEnd="2dp"
-                    app:srcCompat="@drawable/notification" />
-            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/rel_message_1"
