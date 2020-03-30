@@ -1,4 +1,4 @@
-package com.demo.incampus.Activity;
+ package com.demo.incampus.Activity;
 
 import android.app.ActivityOptions;
 import android.content.Context;
@@ -14,6 +14,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
+import android.util.Xml;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +37,15 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.tasks.Task;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -170,6 +180,7 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestScopes(new Scope(Scopes.DRIVE_APPFOLDER))
+                .requestIdToken(serverClientId)
                 .requestServerAuthCode(serverClientId)
                 .requestEmail()
                 .build();
@@ -214,13 +225,17 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        Log.i("function","inside sign in");
     }
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             // Signed in successfully, show authenticated UI.
-            API_POST_google_auth_response(authCode);
+
+            API_POST_google_auth_response(account.getIdToken());
+            Log.i("Token",account.getIdToken());
+            Log.i("function","inside handle sign in result");
             //Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
@@ -260,8 +275,7 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
             // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
-
-            //Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
+            Log.i("Request","request code is rc sign in");
         }
 
         if(requestCode==RC_GET_AUTH_CODE)
@@ -271,13 +285,14 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
 
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             Log.d("Success: ", "onActivityResult:GET_AUTH_CODE:success:" + result.getStatus().isSuccess());
-
+            Log.i("Request","request code is rc auth code");
             if (result.isSuccess()) {
                 // [START get_auth_code]
                 GoogleSignInAccount acct = result.getSignInAccount();
                 authCode = acct.getServerAuthCode();
                 String idTokenString = acct.getIdToken();
 
+                Toast.makeText(this, idTokenString+"tgr", Toast.LENGTH_SHORT).show();
                 // Show signed-in UI.
                 Log.i("Auth: ",authCode);
                 //STORING IN SHARED PREFERENCES GOOGLE AUTH CODE
@@ -285,7 +300,8 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
                 editor.commit();
                 // TODO(user): send code to server and exchange for access/refresh/ID tokens.
                 // [END get_auth_code]
-                API_POST_google_auth_response(authCode);
+                Log.i("Request","rc auth code has success result");
+                API_POST_google_auth_response(idTokenString);
             }
         }
     }
@@ -371,4 +387,52 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
 
         });
     }
+
+    /*
+    void fetchGoogleAuthToken(){
+
+        OkHttpClient okHttpclient = new OkHttpClient();
+        RequestBody requestBody = new FormBody.Builder()
+                .add("grant_type", "authorization_code")
+                .add("client_id",serverClientId)
+                                .add("client_secret", "{clientSecret}")
+                                .add("redirect_uri","")
+                                .add("code", "4/4-GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8")
+                                .build();
+
+        final Request request = new Request.Builder()
+                .url("https://www.googleapis.com/oauth2/v4/token")
+                .post(requestBody)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+
+            @Override
+            public void onFailure(final Request request, final IOException e) {
+                Log.e("Failure", e.toString());
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                try {
+                    JSONObject jsonObject = new JSONObject(response.body().string());
+                    final String message = jsonObject.toString(5);
+                    Log.i("Response", message);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+     */
 }
