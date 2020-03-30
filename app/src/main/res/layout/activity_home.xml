@@ -46,7 +46,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/home"
+                android:id="@+id/homeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
@@ -54,7 +54,7 @@
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="Home"
                 android:textColor="#000000"
-                android:textSize="36sp" />
+                android:textSize="34sp" />
 
             <ImageView
                 android:id="@+id/myProfile"
@@ -67,19 +67,19 @@
             <ImageView
                 android:id="@+id/search"
                 android:layout_width="40dp"
-                android:layout_alignParentEnd="true"
                 android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="60dp"
-                android:layout_marginEnd="140dp"
+                android:layout_marginEnd="126dp"
                 app:srcCompat="@drawable/search" />
 
             <ImageView
                 android:id="@+id/explore"
                 android:layout_width="40dp"
-                android:layout_alignParentEnd="true"
                 android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="60dp"
-                android:layout_marginEnd="95dp"
+                android:layout_marginEnd="84dp"
                 app:srcCompat="@drawable/explore2" />
 
             <ImageView
@@ -88,7 +88,8 @@
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="60dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginEnd="42dp"
+                android:onClick="messages"
                 app:srcCompat="@drawable/messages2" />
 
             <ImageView
@@ -97,7 +98,7 @@
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="60dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="2dp"
                 app:srcCompat="@drawable/notification" />
         </RelativeLayout>
 
