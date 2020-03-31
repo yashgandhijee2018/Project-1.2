@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C3C3C3"
-    android:orientation="vertical"
-    tools:context=".Activity.MessagesActivity">
+    tools:context=".Activity.ExploreActivity">
 
     <RelativeLayout
         android:id="@+id/relLayoutMain"
@@ -25,7 +23,7 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="75dp"
             android:fontFamily="@font/montserrat_semi_bold"
-            android:text="Messages"
+            android:text="Explore"
             android:textColor="#000000"
             android:textSize="34sp" />
 
@@ -57,14 +55,14 @@
             app:srcCompat="@drawable/home2" />
 
         <ImageView
-            android:id="@+id/explore"
+            android:id="@+id/message"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="42dp"
-            android:onClick="explore"
-            app:srcCompat="@drawable/explore2" />
+            android:onClick="messages"
+            app:srcCompat="@drawable/messages2" />
 
         <ImageView
             android:id="@+id/notification"
@@ -77,26 +75,22 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/messageRecyclerView"
+        android:id="@+id/imageRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relLayoutMain" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contentRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relLayoutMain" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:src="@drawable/add"
-        app:fabCustomSize="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@id/imageRecyclerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

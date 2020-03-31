@@ -1,9 +1,6 @@
-
 package com.demo.incampus.Activity;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,22 +13,16 @@ import android.view.WindowManager;
 import com.demo.incampus.Adapter.HomeAdapter;
 import com.demo.incampus.Model.Home;
 import com.demo.incampus.R;
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+public class ExploreActivity extends AppCompatActivity {
 
-    //Initiate Variable
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
-    private NavigationView navigationView;
-
-    RecyclerView recyclerView;
+    //initialize variables
+    RecyclerView contentRecyclerView;
     HomeAdapter adapter;
     List<Home> homeList;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,26 +32,12 @@ public class HomeActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        //Drawer Code
-        drawerLayout = findViewById(R.id.drawerLayout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(HomeActivity.this, drawerLayout, R.string.drawer_open, R.string.drawer_close);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-        navigationView = findViewById(R.id.navView);
-        navigationView.inflateHeaderView(R.layout.header_navdrawer);
-
-        //Amount of screen the drawer covers
-        int width = (int) (getResources().getDisplayMetrics().widthPixels*0.5);
-        DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) navigationView.getLayoutParams();
-        params.width = width;
-        navigationView.setLayoutParams(params);
+        setContentView(R.layout.activity_explore);
 
         //Recycler View Code
         homeList = new ArrayList<>();
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        contentRecyclerView = findViewById(R.id.contentRecyclerview);
+        contentRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         homeList.add(new Home("Basketball", "bond_007","15 min ago",
                 "Anyone up for the basketball game? I will be at the complex around 5pm. Acknowledge if you are coming.",
@@ -103,19 +80,18 @@ public class HomeActivity extends AppCompatActivity {
         ));
 
         adapter = new HomeAdapter(this,homeList);
-        recyclerView.setAdapter(adapter);
+        contentRecyclerView.setAdapter(adapter);
+    }
 
+    //move to home activity
+    public void home (View view) {
+        Intent intent = new Intent(this,HomeActivity.class);
+        startActivity(intent);
     }
 
     //move to messages activity
     public void messages (View view) {
         Intent intent = new Intent(getApplicationContext(),MessagesActivity.class);
-        startActivity(intent);
-    }
-
-    //move to explore activity
-    public void explore(View view) {
-        Intent intent = new Intent(getApplicationContext(),ExploreActivity.class);
         startActivity(intent);
     }
 }

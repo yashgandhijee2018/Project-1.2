@@ -30,6 +30,12 @@ public class MessagesActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //move to explore activity
+    public void explore(View view) {
+        Intent intent = new Intent(getApplicationContext(),ExploreActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
