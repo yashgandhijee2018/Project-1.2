@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.demo.incampus.Adapter.ExploreAdapter;
 import com.demo.incampus.Adapter.HomeAdapter;
+import com.demo.incampus.Model.Explore;
 import com.demo.incampus.Model.Home;
 import com.demo.incampus.R;
 
@@ -20,9 +22,11 @@ import java.util.List;
 public class ExploreActivity extends AppCompatActivity {
 
     //initialize variables
-    RecyclerView contentRecyclerView;
+    RecyclerView contentRecyclerView, imageRecyclerView;
     HomeAdapter adapter;
+    ExploreAdapter exploreAdapter;
     List<Home> homeList;
+    List<Explore> exploreList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class ExploreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore);
 
-        //Recycler View Code
+        //contentRecycler View Code
         homeList = new ArrayList<>();
         contentRecyclerView = findViewById(R.id.contentRecyclerview);
         contentRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -81,6 +85,27 @@ public class ExploreActivity extends AppCompatActivity {
 
         adapter = new HomeAdapter(this,homeList);
         contentRecyclerView.setAdapter(adapter);
+
+
+        //imageRecyclerView code
+        imageRecyclerView = findViewById(R.id.imageRecyclerView);
+        exploreList = new ArrayList<>();
+        LinearLayoutManager linearLayoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        imageRecyclerView.setLayoutManager(linearLayoutManager);
+
+        exploreList.add(new Explore(R.drawable.scene,"All Activity"));
+        exploreList.add(new Explore(R.drawable.scene,"Music"));
+        exploreList.add(new Explore(R.drawable.scene,"Games"));
+        exploreList.add(new Explore(R.drawable.scene,"Hackathon"));
+        exploreList.add(new Explore(R.drawable.scene,"News"));
+        exploreList.add(new Explore(R.drawable.scene,"Football"));
+        exploreList.add(new Explore(R.drawable.scene,"Activity"));
+        exploreList.add(new Explore(R.drawable.scene,"GTA V"));
+        exploreList.add(new Explore(R.drawable.scene,"Dance"));
+
+        exploreAdapter = new ExploreAdapter(this,exploreList);
+        imageRecyclerView.setAdapter(exploreAdapter);
     }
 
     //move to home activity
