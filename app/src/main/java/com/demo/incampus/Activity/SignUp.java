@@ -35,6 +35,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import org.json.JSONException;
@@ -53,6 +54,8 @@ import retrofit2.Response;
 
 
 public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+
+    Button signout_button;
     Boolean pwd_vis=false;
 
     GoogleSignInClient mGoogleSignInClient;
@@ -207,6 +210,20 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
         /*__________________________________________END_GOOGLE______________________________________________*/
 
 
+        signout_button=findViewById(R.id.signout);
+        signout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    // ...
+                    case R.id.signout:
+                        signOut();
+                        break;
+                    // ...
+                }
+            }
+        });
+
     }
 
     @Override
@@ -350,8 +367,9 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
         SharedPreferences preferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = preferences.edit();
 
+        Log.i("TT",id_token);
         //API POST REGISTER
-        retrofit2.Call<ResponseBody> register= RetrofitClient.getInstance().getApi().google_id_token(id_token);
+        Call<ResponseBody> register= RetrofitClient.getInstance().getApi().google_id_token(id_token);
         register.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(retrofit2.Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -435,4 +453,14 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
     }
 
      */
+
+    private void signOut() {
+        mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(SignUp.this, "Sign out user", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 }
